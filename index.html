@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>you said crazy?</title>
-     <style>
+    <style>
       body {
         background-color: black;
         display: flex;
@@ -12,7 +12,7 @@
         height: 100vh;
       }
 
-      h1, p, p2 {
+      h1, p {
         color: white;
         text-align: center;
       }
@@ -26,13 +26,13 @@
     <form>
       <label for="input">Enter a word:</label>
       <input type="text" id="input" name="input">
-      <button type="button" onclick="generateSentence()">raghagah</button>
+      <button type="button" onclick="generateSentence()">raghaghaga</button>
     </form>
     <p id="output"></p>
     <script>
       function generateSentence() {
         var input = document.getElementById("input").value;
-        if (input === "crazy", "crazy?") {
+        if (input === "crazy" || input === "crazy?") {
           document.getElementById("output").innerHTML = "Crazy? I was crazy once... they locked me in a room. A rubber room. A rubber room with rats. And rats make me crazy.";
         } else {
           document.getElementById("output").innerHTML = "Input not recognized.";
