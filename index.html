@@ -21,17 +21,10 @@
 
       input, button {
         margin: 10px;
-      }
-
-      #rainbow {
-        background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
     </style>
   </head>
   <body>
-    <h1>say crazy(trust me)</h1>
+     <h1>say crazy(trust me)</h1>
     <form>
       <label for="input">Enter a word:</label>
       <input type="text" id="input" name="input">
@@ -42,10 +35,25 @@
     </div>
     <script>
       function generateSentence() {
-        const input = document.getElementById("input").value;
-        const output = document.getElementById("output");
-        output.innerHTML = <span id="rainbow">"Crazy? I was crazy once... they locked me in a room. A rubber room. A rubber room with rats. And rats make me crazy."</span>`;
+        var input = document.getElementById("input").value;
+        if (input === "crazy" || input === "crazy?") {
+          var outputContainer = document.getElementById("output-container");
+          var output = document.createElement("p");
+          output.innerHTML = "Crazy? I was crazy once... they locked me in a room. A rubber room. A rubber room with rats. And rats make me crazy.";
+          outputContainer.appendChild(output);
+        } else {
+          document.getElementById("output").innerHTML = "you're supposed to say crazy...";
+        }
       }
+
+
+      var input = document.getElementById("input");
+      input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+          event.preventDefault();
+          document.getElementById("button").click();
+        }
+      });
     </script>
   </body>
 </html>
