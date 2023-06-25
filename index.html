@@ -27,23 +27,29 @@
     </style>
   </head>
   <body>
-       <h1>say crazy (trust me)</h1>
+     <h1>say crazy(trust me)</h1>
     <p2>(you can say it more than once btw)</p2>
     <form>
       <label for="input"> </label>
       <input type="text" id="input" name="input">
-      <button type="button" onclick="checkInput()">Submit</button>
+      <button type="button" onclick="generateSentence()">button(click)</button>
     </form>
-    <p id="output"></p>
+    <div id="output-container">
+      <p id="output"></p>
+    </div>
     <script>
-      function checkInput() {
-        var input = document.getElementById("input").value.toLowerCase();
-        if (input.includes("crazy")) {
-          document.getElementById("output").innerHTML = "Crazy? I was crazy once... they locked me in a room. A rubber room. A rubber room with rats. And rats make me crazy.";
+      function generateSentence() {
+        var input = document.getElementById("input").value;
+        if (input === "crazy" || input === "crazy?" || input === "Crazy" || input === "Crazy?" || input === "CRazy" || input === "CRazy?" || input === "CRAzy" || input === "CRAzy?" || input === "CRAZy" || input === "CRAZy?" || input === "CRAZY" || input === "CRAZY?") {
+          var outputContainer = document.getElementById("output-container");
+          var output = document.createElement("p");
+          output.innerHTML = "Crazy? I was crazy once... they locked me in a room. A rubber room. A rubber room with rats. And rats make me crazy.";
+          outputContainer.appendChild(output);
         } else {
           document.getElementById("output").innerHTML = "you're supposed to say crazy...";
         }
       }
+
 
       var input = document.getElementById("input");
       input.addEventListener("keyup", function(event) {
