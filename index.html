@@ -3,31 +3,30 @@
   <head>
     <title>you said crazy?</title>
     <style>
-   body {
-  background-image: url("https://cdn.discordapp.com/attachments/1063693140806090813/1122312954449244271/emmettheseal-room-3.jpg");
-  background-repeat: repeat;
-  background-position: center;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
+      body {
+        background-image: url("https://i.postimg.cc/mDM5sVhm/11698819a7fd41d20e3cd65f254ba936.png");
+        background-repeat: repeat;
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
 
       h1, p, p2 {
         color: white;
         text-align: center;
       }
 
-
       input, button {
         margin: 10px;
+      }
     </style>
   </head>
   <body>
-     <h1>say crazy(trust me)</h1>
+    <h1>say crazy(trust me)</h1>
     <p2>(you can say it more than once btw)</p2>
     <form>
       <label for="input"> </label>
@@ -37,6 +36,7 @@
     <div id="output-container">
       <p id="output"></p>
     </div>
+
     <script>
       function generateSentence() {
         var input = document.getElementById("input").value;
@@ -49,7 +49,6 @@
           document.getElementById("output").innerHTML = "you're supposed to say crazy...";
         }
       }
-
 
       var input = document.getElementById("input");
       input.addEventListener("keyup", function(event) {
