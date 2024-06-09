@@ -13,15 +13,32 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
+        overflow: hidden;
       }
 
       h1, p, p2 {
         color: white;
         text-align: center;
+        text-shadow: 
+          -1px -1px 0 #000,  
+           1px -1px 0 #000,
+          -1px  1px 0 #000,
+           1px  1px 0 #000; 
       }
 
       input, button {
         margin: 10px;
+      }
+
+      .output {
+        position: absolute;
+        color: white;
+        white-space: nowrap;
+        text-shadow: 
+          -1px -1px 0 #000,  
+           1px -1px 0 #000,
+          -1px  1px 0 #000,
+           1px  1px 0 #000; 
       }
     </style>
   </head>
@@ -40,10 +57,20 @@
     <script>
       function generateSentence() {
         var input = document.getElementById("input").value;
-        if (input === "crazy" || input === "crazy?" || input === "Crazy" || input === "Crazy?" || input === "CRazy" || input === "CRazy?" || input === "CRAzy" || input === "CRAzy?" || input === "CRAZy" || input === "CRAZy?" || input === "CRAZY" || input === "CRAZY?") {
+        if (["crazy", "crazy?", "Crazy", "Crazy?", "CRazy", "CRazy?", "CRAzy", "CRAzy?", "CRAZy", "CRAZy?", "CRAZY", "CRAZY?"].includes(input)) {
           var outputContainer = document.getElementById("output-container");
           var output = document.createElement("p");
+          output.className = "output";
           output.innerHTML = "Crazy? I was crazy once... they locked me in a room. A rubber room. A rubber room with rats. And rats make me crazy.";
+          
+          var x = Math.random() * (window.innerWidth - 200);
+          var y = Math.random() * (window.innerHeight - 50);
+          var rotation = Math.random() * 360;
+          
+          output.style.left = x + "px";
+          output.style.top = y + "px";
+          output.style.transform = "rotate(" + rotation + "deg)";
+          
           outputContainer.appendChild(output);
         } else {
           document.getElementById("output").innerHTML = "you're supposed to say crazy...";
@@ -54,7 +81,7 @@
       input.addEventListener("keyup", function(event) {
         if (event.keyCode === 13) {
           event.preventDefault();
-          document.getElementById("button").click();
+          document.querySelector("button").click();
         }
       });
     </script>
